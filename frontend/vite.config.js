@@ -5,10 +5,6 @@ export default defineConfig({
   plugins: [react()],
   test: {
     environment: 'jsdom',
-    setupFiles: ['./vitest.setup.js'],
-    reporters: [
-      'default',
-      ['junit', { outputFile: './reports/junit.xml' }]
-    ],
+    setupFiles: './vitest.setup.js',
   },
 });
