@@ -6,8 +6,8 @@
     "node": "22"
   },
   "scripts": {
-    "deploy": "firebase deploy --only functions",
-    "emulate": "firebase emulators:start --only functions,firestore,storage"
+    "test": "vitest",
+    "test:ci": "vitest run --reporter=verbose --reporter=junit --outputFile=reports/backend-tests.xml"
   },
   "keywords": [],
   "author": "",
@@ -19,5 +19,8 @@
     "firebase-functions": "^6.4.0",
     "sharp": "^0.34.3",
     "stripe": "^18.5.0"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4"
   }
 }
