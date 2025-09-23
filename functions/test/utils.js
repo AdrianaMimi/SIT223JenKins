@@ -5,7 +5,6 @@ export function mockReq(overrides = {}) {
     method: "POST",
     headers: {},
     body: {},
-    // onRequest adds these sometimes; keep harmless defaults:
     query: {},
     path: "/",
     ...overrides,
@@ -19,7 +18,6 @@ export function mockRes() {
   res._headers = Object.create(null);
   const listeners = Object.create(null);
 
-  // ---- Node-like header API used by cors/vary ----
   res.setHeader = (name, value) => {
     res._headers[String(name).toLowerCase()] = value;
   };
@@ -35,16 +33,14 @@ export function mockRes() {
   res.set = vi.fn((name, value) => { res.setHeader(name, value); return res; });
   res.get = vi.fn((name) => res.getHeader(name));
 
-  // ---- events used by firebase wrapper ----
   res.on = vi.fn((event, cb) => {
     (listeners[event] ||= []).push(cb);
     return res;
   });
   const fire = (event) => {
-    (listeners[event] || []).forEach((cb) => { try { cb(); } catch { } });
+    (listeners[event] || []).forEach((cb) => { try { cb(); } catch (e) { } });
   };
 
-  // ---- body writers ----
   res.status = vi.fn((code) => { res.statusCode = code; return res; });
   res.json = vi.fn((obj) => { res.body = obj; res.headersSent = true; fire("finish"); return res; });
   res.send = vi.fn((txt) => { res.body = txt; res.headersSent = true; fire("finish"); return res; });

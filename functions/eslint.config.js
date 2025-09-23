@@ -4,8 +4,10 @@ export default [
   {
     files: ["**/*.js", "**/*.mjs"],
     languageOptions: {
-      ecmaVersion: 2022,
-      sourceType: "module",
+      ecmaVersion: 'latest',
+      sourceType: 'module',
+      globals: { process: true },
+      env: { node: true },
     },
     rules: {
       "no-unused-vars": "warn",
