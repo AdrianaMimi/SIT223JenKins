@@ -345,10 +345,13 @@ Just a comment line (defaults to author "Admin" and 0 upvotes)`}
 
             {/* Title */}
             <div className="mb-3">
-                <label>Title</label>
+                <label htmlFor="title">Title</label>
                 <input
-                    type="text" className="form-control"
-                    value={title} onChange={(e) => setTitle(e.target.value)}
+                    id="title"
+                    type="text"
+                    className="form-control"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
                 />
             </div>
 
@@ -378,28 +381,35 @@ Just a comment line (defaults to author "Admin" and 0 upvotes)`}
 
             {/* Summary */}
             <div className="mb-3">
-                <label>Summary</label>
+                <label htmlFor="summary">Summary</label>
                 <textarea
-                    className="form-control" rows="2"
-                    value={summary} onChange={(e) => setSummary(e.target.value)}
+                    id="summary"
+                    className="form-control"
+                    rows="2"
+                    value={summary}
+                    onChange={(e) => setSummary(e.target.value)}
                 />
             </div>
 
             {/* Body */}
             <div className="mb-3">
-                <label>Body</label>
+                <label htmlFor="body-editor">Body</label>
             </div>
             <PostQuestionEditor
+                id="body-editor"
                 value={body}
                 onChange={setBody}
             />
 
             {/* Tags */}
             <div className="mb-3">
-                <label>Tags</label>
+                <label htmlFor="tags">Tags</label>
                 <input
-                    type="text" className="form-control"
-                    value={tags} onChange={(e) => setTags(e.target.value)}
+                    id="tags"
+                    type="text"
+                    className="form-control"
+                    value={tags}
+                    onChange={(e) => setTags(e.target.value)}
                     placeholder="Comma-separated"
                 />
             </div>
