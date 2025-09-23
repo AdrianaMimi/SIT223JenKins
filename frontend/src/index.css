@@ -1,0 +1,377 @@
+.cookie-regular {
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lato-thin {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: normal;
+}
+
+.lato-light {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+}
+
+.lato-regular {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.lato-bold {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.lato-black {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: normal;
+}
+
+.lato-thin-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 100;
+    font-style: italic;
+}
+
+.lato-light-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+    font-style: italic;
+}
+
+.lato-regular-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: italic;
+}
+
+.lato-bold-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-style: italic;
+}
+
+.lato-black-italic {
+    font-family: "Lato", sans-serif;
+    font-weight: 900;
+    font-style: italic;
+}
+
+.bg-header2 {
+    background-color: lightgreen;
+}
+
+.bg-header3 {
+    background-color: lightgray;
+}
+
+.bg-header4 {
+    background-color: aquamarine;
+}
+
+.nav-link.active {
+    color: #5c4033 !important;
+    background-color: #CDB4DB !important;
+}
+
+.nav-link {
+    color: black !important;
+    font-style: italic !important;
+    font-weight: 600 !important;
+}
+
+.hidden {
+    display: none;
+}
+
+.lobster-regular {
+    font-family: "Lobster", sans-seri;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.bg-bisque {
+    background-color: bisque;
+}
+
+.bisque {
+    color: rgb(254, 207, 150) !important;
+}
+
+.bg-lavender {
+    background-color: #CDB4DB !important;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.bigbig-text {
+    color: #5c4033 !important;
+}
+
+.smallsmall-text {
+    color: #444;
+}
+
+.bg-sky-blue {
+    background-color: #BDE0FE !important;
+}
+
+.soft-blue {
+    color: #88b4da !important;
+}
+
+.bg-mint {
+    background-color: #c8facc !important;
+}
+
+.bg-rose {
+    background-color: #ffb3c1 !important;
+}
+
+.color-mint {
+    color: #c8facc !important;
+}
+
+.bg-milktea {
+    background-color: #5c4033 !important;
+
+}
+
+.bg-milktea2 {
+    background-color: #cfac9c !important;
+}
+
+.color-lavendar {
+    color: #b879dc !important;
+}
+
+.rose {
+    color: #ffb3c1;
+}
+
+.deep-rose {
+    color: #dc6178 !important;
+}
+
+.cute-deep-rose {
+    color: #eb506d !important;
+}
+
+.color-deep-mint {
+    color: #26A65B !important;
+}
+
+.btn-alice {
+    background-color: rgb(214, 235, 254) !important;
+}
+
+
+.btn-alice:hover {
+    background-color: rgb(179, 211, 239) !important;
+}
+
+.btn-outline-rose {
+    color: #fe97aa !important;
+    border-color: #fe97aa !important;
+}
+
+.btn-outline-rose:hover {
+    background-color: #fe97aa !important;
+    color: white !important;
+}
+
+.btn-outline-bisque {
+    color: rgb(244, 191, 126) !important;
+    border-color: rgb(244, 191, 126) !important;
+}
+
+.btn-outline-bisque:hover {
+    background-color: rgb(244, 191, 126) !important;
+    color: white !important;
+}
+
+.btn-bisque {
+    background-color: bisque !important;
+}
+
+.btn-bisque:hover {
+    background-color: rgb(255, 206, 146) !important;
+}
+
+
+
+.btn-cream {
+    background-color: #fff0d6 !important;
+    color: #3a3a3a !important;
+}
+
+.btn-cream:hover {
+    background-color: #ffe3b3 !important;
+    color: #2a2a2a !important;
+}
+
+.btn-rose {
+    background-color: #fec4ce !important;
+}
+
+.btn-rose:hover {
+    background-color: #fe97aa !important;
+    color: white !important;
+}
+
+
+/* gentle fade/slide for navbar items */
+.fade-item-enter {
+    opacity: 0;
+    transform: translateY(-6px);
+}
+
+.fade-item-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 180ms ease, transform 180ms ease;
+}
+
+.fade-item-exit {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-item-exit-active {
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 120ms ease, transform 120ms ease;
+}
+
+.form-select.lobster-regular {
+    font-family: 'Lobster', cursive !important;
+}
+
+.form-select.lobster-regular option,
+.form-select.lobster-regular optgroup {
+    font-family: 'Lobster', cursive !important;
+}
+
+.toastMessage {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+
+.show {
+    opacity: 1;
+}
+
+
+.toastSuccess {
+    background-color: #ffeef5;
+    color: #aa336a;
+    border: 2px solid #f8cde0;
+    padding: 10px 18px;
+    border-radius: 16px;
+    font-weight: 600;
+    font-family: 'Segoe UI', cursive;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+}
+
+
+.toastError {
+    background-color: #fff1f0;
+    color: #c2413a;
+    border: 2px solid #ffd1cd;
+    padding: 10px 18px;
+    border-radius: 16px;
+    font-weight: 700;
+    font-family: 'Segoe UI', cursive;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    z-index: 9999;
+}
+
+
+@keyframes toast-in {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes toast-out {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+}
+
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+.modalCard {
+    background-color: rgb(214, 235, 254);
+    border: 2px solid #b3d8f9;
+    border-radius: 12px;
+    padding: 1.5rem;
+    max-width: 420px;
+    width: 100%;
+    box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+    animation: fadeInScale 0.2s ease-out;
+    font-family: var(--bs-body-font-family, system-ui, -apple-system, sans-serif);
+    color: #084298;
+}
+
+.modalCard h5 {
+    font-weight: 600;
+    margin: 0 0 .5rem;
+    color: #052c65;
+}
+
+.modalCard p {
+    margin: 0 0 1rem;
+    font-size: 0.95rem;
+    color: #084298;
+    white-space: pre-line;
+}
+
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.CodeMirror:first-child {
+    display: none;
+}
+
+.CodeMirror {
+    font-family: inherit !important;
+}

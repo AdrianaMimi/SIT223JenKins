@@ -1,0 +1,6 @@
+.footerInput:focus {
+  border: 2px solid #CDB4DB;
+  outline: none;
+  box-shadow: 0 0 0 0.25rem rgba(205, 180, 219, 0.4);
+  transition: border 0.3s ease, box-shadow 0.3s ease;
+}

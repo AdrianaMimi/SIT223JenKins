@@ -1,0 +1,342 @@
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+
+  /* gray haze — de-emphasize page but keep it visible */
+  background: radial-gradient(120% 150% at 50% 40%,
+      rgba(17, 24, 39, .45),
+      rgba(17, 24, 39, .58));
+  backdrop-filter: blur(6px) saturate(112%);
+  -webkit-backdrop-filter: blur(6px) saturate(112%);
+
+  animation: overlayIn .18s ease-out;
+}
+
+@keyframes overlayIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* =========================
+   Modal Card (full fills)
+   ========================= */
+.modalCard {
+  width: min(760px, 96vw);
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+
+  /* base white for readability; color comes from pseudo-layers */
+  background: #ffffff;
+  color: #1f2937;
+
+  border: 1px solid rgba(200, 250, 204, .75);
+  /* mint border */
+  box-shadow:
+    0 12px 30px rgba(17, 24, 39, .18),
+    0 10px 28px rgba(255, 179, 193, .26),
+    0 1px 0 rgba(255, 255, 255, .9) inset;
+
+  animation: cardIn .22s ease-out;
+}
+
+/* full-height color layers — no gaps, no seams */
+.modalCard::before,
+.modalCard::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
+/* soft rainbow from top fading into middle */
+.modalCard::before {
+  background: linear-gradient(180deg,
+      rgba(255, 179, 193, 0.35) 0%,
+      rgba(255, 179, 193, 0.25) 10%,
+      rgba(200, 250, 204, 0.15) 30%,
+      rgba(255, 255, 255, 0) 60%);
+}
+
+/* mint rise from bottom fading upward */
+.modalCard::after {
+  background: linear-gradient(0deg,
+      rgba(200, 250, 204, 0.40) 0%,
+      rgba(200, 250, 204, 0.22) 25%,
+      rgba(255, 255, 255, 0) 55%);
+}
+
+@keyframes cardIn {
+  from {
+    transform: translateY(6px) scale(.985);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+/* Keep content above the gradient layers */
+.modalHeader,
+.modalBody,
+.modalFooter {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================
+   Header
+   ========================= */
+.modalHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem;
+  padding: .8rem 1rem;
+
+  /* no solid background and no border to avoid seams */
+  background: transparent;
+  border-bottom: none;
+}
+
+.modalTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  font-weight: 700;
+  letter-spacing: .2px;
+  color: #1b2430;
+  font-family: "Lobster", "Brush Script MT", cursive, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* tiny pastel close icon */
+.closeBtn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  width: 32px;
+  height: 32px;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  font-size: 18px;
+  line-height: 1;
+  color: #6b7280;
+  transition: background .15s ease, transform .06s ease;
+}
+
+.closeBtn:hover {
+  background: rgba(203, 213, 225, .35);
+}
+
+.closeBtn:active {
+  transform: scale(.96);
+}
+
+/* =========================
+   Body
+   ========================= */
+.modalBody {
+  padding: .9rem 1rem .7rem;
+  line-height: 1.6;
+  color: #374151;
+}
+
+/* tag chips (Bootstrap pill override) */
+.modalBody :global(.badge.bg-secondary) {
+  background: linear-gradient(180deg, #f1fff3, #e8ffee);
+  color: #243041;
+  border: 1px solid rgba(200, 250, 204, .8);
+  font-weight: 600;
+}
+
+.modalBody ul.list-unstyled.small {
+  margin-top: .5rem;
+}
+
+/* =========================
+   Footer
+   ========================= */
+.modalFooter {
+  display: flex;
+  justify-content: flex-end;
+  gap: .5rem;
+  padding: .65rem 1rem .8rem;
+  background: transparent;
+  /* no bar — gradients are on the card */
+  border-top: none;
+}
+
+/* =========================
+   Buttons (cute + readable)
+   ========================= */
+.ctaBtn {
+  font-size: .95rem !important;
+  line-height: 1 !important;
+  padding: .48rem .95rem !important;
+
+  border: 1px solid #b98ef2 !important;
+  border-radius: 14px !important;
+
+  color: #ffffff !important;
+  text-shadow: 0 1px 0 rgba(0, 0, 0, .08);
+  background: linear-gradient(180deg, #caa9f7, #b98ef2);
+  box-shadow:
+    0 6px 14px rgba(255, 179, 193, .38),
+    0 1px 0 rgba(255, 255, 255, .85) inset;
+
+  font-weight: 700 !important;
+  letter-spacing: .2px;
+
+  transition: transform .06s ease, box-shadow .15s ease, filter .15s ease;
+}
+
+.ctaBtn:hover {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+  box-shadow:
+    0 8px 18px rgba(255, 179, 193, .48),
+    0 1px 0 rgba(255, 255, 255, .9) inset;
+}
+
+.ctaBtn:active {
+  transform: translateY(0);
+  box-shadow:
+    0 4px 10px rgba(255, 179, 193, .38),
+    0 1px 0 rgba(255, 255, 255, .85) inset;
+}
+
+.ghostBtn {
+  font-size: .95rem !important;
+  line-height: 1 !important;
+  padding: .44rem .85rem !important;
+
+  color: #2f3440 !important;
+  background: rgba(200, 250, 204, .28) !important;
+  border: 1px solid rgba(200, 250, 204, .85) !important;
+  border-radius: 12px !important;
+
+  font-weight: 600 !important;
+  transition: background .15s ease, transform .06s ease, border-color .15s ease;
+}
+
+.ghostBtn:hover {
+  background: rgba(200, 250, 204, .4) !important;
+  border-color: rgba(200, 250, 204, 1) !important;
+}
+
+.ghostBtn:active {
+  transform: translateY(1px);
+}
+
+/* =========================
+   Optional extras
+   ========================= */
+.dismissBtn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(30%, -30%);
+  z-index: 10;
+  background: rgba(255, 0, 0, 0.15);
+  color: #c00;
+  border: none;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  font-size: 14px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .08s ease;
+}
+
+.dismissBtn:hover {
+  background: rgba(255, 0, 0, .62);
+  color: #5c0101;
+}
+
+.dismissBtn:active {
+  transform: translate(30%, -30%) scale(.96);
+}
+
+.dragHandle {
+  position: absolute;
+  inset-inline-start: 8px;
+  inset-block-start: 8px;
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  cursor: grab;
+  color: #c48bf3;
+  background-color: #f39adf;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  line-height: 1;
+}
+
+.dragHandle:hover {
+  background-color: #c48bf3;
+  color: #f39adf;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+/* Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+
+  .modalOverlay,
+  .modalCard {
+    animation: none;
+  }
+}
+
+/* Admin-only delete button (inside the card, top-right) */
+.deleteBtn {
+  position: absolute;
+  top: 8px;
+  right: 40px;
+  /* inside the card; dismissBtn floats outside */
+  z-index: 11;
+
+  appearance: none;
+  border: 0;
+  border-radius: 10px;
+  padding: 6px 8px;
+  font-size: 12px;
+  line-height: 1;
+  cursor: pointer;
+
+  color: #7a0b0b;
+  background: rgba(255, 0, 0, 0.10);
+  transition: background .15s ease, transform .06s ease, color .15s ease;
+}
+
+.deleteBtn:hover {
+  background: rgba(255, 0, 0, 0.18);
+  color: #5c0101;
+}
+
+.deleteBtn:active {
+  transform: translateY(1px);
+}

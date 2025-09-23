@@ -1,0 +1,55 @@
+.dragHandle {
+  position: absolute;
+  inset-inline-start: 8px;
+  inset-block-start: 8px;
+  display: inline-flex;
+  width: 25px;
+  height: 25px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  cursor: grab;
+  color: #c48bf3;
+  background-color: #f39adf;
+  align-items: center;
+  justify-content: center;
+  font-family: system-ui, sans-serif;
+  line-height: 1;
+}
+
+.dragHandle:hover {
+  background-color: #c48bf3;
+  color: #f39adf;
+}
+
+.dragHandle:active {
+  cursor: grabbing;
+}
+
+.deleteButton {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  z-index: 10;
+  background: rgba(220, 53, 69, 0.9);
+  /* Bootstrap danger tone */
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 10px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  opacity: 0.85;
+  transition: all 0.2s ease-in-out;
+}
+
+.deleteButton:hover {
+  opacity: 1;
+  background: #dc3545;
+  transform: scale(1.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.deleteButton:active {
+  transform: scale(0.97);
+}
