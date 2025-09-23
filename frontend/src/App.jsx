@@ -28,7 +28,6 @@ import PaymentSuccess from "./assets/loginregister/paymentsuccess";
 import PaymentCancel from "./assets/loginregister/paymentcancel";
 import Settings from './assets/loginregister/Settings'
 
-/** Route guard: only render children if logged in; otherwise redirect to /login */
 function RequireAuth({ children }) {
   const { user, loading } = useAuth();
   const location = useLocation();
@@ -45,8 +44,6 @@ function RequireAuth({ children }) {
 // Sub-component to access location (needed for dynamic bg)
 const AppContent = () => {
   const location = useLocation();
-
-  // Set gradient styles
   const getBackgroundStyle = () => {
     if (location.pathname === "/post") {
       return { background: "linear-gradient(to bottom right, #FDEFF9, #E1F0FF)" };
@@ -62,8 +59,6 @@ const AppContent = () => {
     }
     return {};
   };
-
-  // Set class names for other paths
   const getBackgroundClass = () => {
     switch (location.pathname) {
       default:
