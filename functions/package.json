@@ -6,8 +6,11 @@
     "node": "22"
   },
   "scripts": {
+    "lint": "eslint .",
     "test": "vitest",
-    "test:ci": "vitest run --reporter=verbose --reporter=junit --outputFile=reports/backend-tests.xml"
+    "test:ci": "vitest run --reporter=verbose --reporter=junit --outputFile=reports/functions-tests.xml",
+    "emulate": "firebase emulators:start --only functions,firestore,storage",
+    "itest": "firebase emulators:exec --only functions \"vitest run --reporter=verbose --reporter=junit --outputFile=reports/functions-itests.xml\""
   },
   "keywords": [],
   "author": "",
@@ -21,6 +24,7 @@
     "stripe": "^18.5.0"
   },
   "devDependencies": {
+    "eslint": "^9.0.0",
     "vitest": "^3.2.4"
   }
 }
