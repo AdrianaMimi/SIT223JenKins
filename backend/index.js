@@ -96,6 +96,10 @@ app.post("/subscribe", async (req, res) => {
   }
 });
 
-app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+// export for tests
+module.exports = app;
 
+if (require.main === module) {
+  app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+}
 
