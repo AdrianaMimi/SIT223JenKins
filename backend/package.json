@@ -15,6 +15,6 @@
   "scripts": {
     "lint": "eslint .",
     "test": "vitest",
-    "test:ci": "vitest run --reporter=verbose --reporter=junit --outputFile=reports/frontend-tests.xml"
+    "test:ci": "vitest run --reporter=junit --outputFile=reports/junit.xml"
   }
 }

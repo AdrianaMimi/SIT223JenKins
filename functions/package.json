@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "test": "vitest",
-    "test:ci": "vitest run --reporter=verbose --reporter=junit --outputFile=reports/functions-tests.xml",
+    "test:ci": "vitest run --reporter=junit --outputFile=reports/junit.xml",
     "emulate": "firebase emulators:start --only functions,firestore,storage",
     "itest": "firebase emulators:exec --only functions \"vitest run --reporter=verbose --reporter=junit --outputFile=reports/functions-itests.xml\""
   },
