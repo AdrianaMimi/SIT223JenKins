@@ -9,12 +9,13 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
+    "@vitest/coverage-v8": "^3.2.4",
     "supertest": "^7.1.4",
     "vitest": "^3.2.4"
   },
   "scripts": {
     "lint": "eslint .",
     "test": "vitest",
-    "test:ci": "vitest run --reporter=junit --outputFile=reports/junit.xml"
+    "test:ci": "vitest run --coverage --reporter=junit --outputFile=reports/junit.xml"
   }
 }

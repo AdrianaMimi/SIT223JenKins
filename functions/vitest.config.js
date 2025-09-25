@@ -1,16 +1,13 @@
 import { defineConfig } from 'vitest/config';
+
 export default defineConfig({
   test: {
-    environment: 'node',
-    globals: true,
-    restoreMocks: true,
-    clearMocks: true,
     reporters: ['default', 'junit'],
     outputFile: 'reports/junit.xml',
     coverage: {
-      provider: 'v8',                  
+      provider: 'v8',
       reporter: ['text-summary', 'lcov'],
-      reportsDirectory: 'coverage',
+      reportsDirectory: 'coverage', 
       exclude: [
         '**/*.test.*',
         '**/*.spec.*',

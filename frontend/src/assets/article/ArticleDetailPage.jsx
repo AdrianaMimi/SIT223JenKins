@@ -52,7 +52,7 @@ export default function ArticleDetailPage() {
   };
   useEffect(() => () => clearToastTimers(), []);
 
-  // ----- admin flag via custom claim -----
+  // ----- admin flag through custom claim -----
   const [isAdmin, setIsAdmin] = useState(false);
   useEffect(() => {
     let mounted = true;

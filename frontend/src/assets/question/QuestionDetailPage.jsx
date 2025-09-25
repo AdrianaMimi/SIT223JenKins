@@ -33,7 +33,7 @@ export default function QuestionDetailPage() {
       try {
         const u = auth.currentUser;
         if (!u) return mounted && setIsAdmin(false);
-        const tok = await user.getIdTokenResult(true);
+        const tok = await u.getIdTokenResult(true);
         mounted && setIsAdmin(!!tok.claims?.admin);
       } catch {
         mounted && setIsAdmin(false);

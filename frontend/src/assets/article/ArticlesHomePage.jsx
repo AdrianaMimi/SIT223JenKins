@@ -13,7 +13,7 @@ import ArticleCard from './ArticleCard';
 
 const PLACEHOLDER_IMG = '/testinggg.jpg'; // fallback if no image saved
 
-const Articles = () => {
+const ArticlesHomePage = () => {
   const [hovered, setHovered] = useState(false);
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -21,7 +21,7 @@ const Articles = () => {
 
   useEffect(() => {
     // Top 3 by average rating; public only
-    // NOTE: If Firestore asks for an index, create the composite it suggests
+    // NOTE: If Firestore asks for an index, create the composite 
     const q = query(
       collection(db, 'articles'),
       where('visibility', '==', 'public'),
@@ -97,4 +97,4 @@ const Articles = () => {
   );
 };
 
-export default Articles;
+export default ArticlesHomePage;

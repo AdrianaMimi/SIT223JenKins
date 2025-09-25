@@ -22,7 +22,6 @@ const LoginForm = ({ onSuccess, onError }) => {
     }
 
     const lowerEmail = email.trim().toLowerCase();
-    const cooldownKey = `verifyCooldown:${lowerEmail}`;
 
     try {
       setSubmitting(true);
@@ -39,7 +38,6 @@ const LoginForm = ({ onSuccess, onError }) => {
         const UI_COOLDOWN_MS = 60_000;
         const SERVER_BACKOFF_MS = 5 * 60_000;
 
-        const lowerEmail = email.trim().toLowerCase();
         const cooldownKey = `verifyCooldown:${lowerEmail}`;
         const now = Date.now();
         const nextAllowedAt = Number(localStorage.getItem(cooldownKey) || 0);
@@ -109,8 +107,9 @@ const LoginForm = ({ onSuccess, onError }) => {
       <h3 className="fs-1 mb-4 text-center">Login</h3>
 
       <div className="mb-3">
-        <label>Email</label>
+        <label htmlFor="email">Email</label>
         <input
+          id="email"                      
           type="email"
           className="form-control"
           value={email}
@@ -120,8 +119,9 @@ const LoginForm = ({ onSuccess, onError }) => {
       </div>
 
       <div className="mb-4">
-        <label>Password</label>
+        <label htmlFor="password">Password</label>
         <input
+          id="password"                    
           type="password"
           className="form-control"
           value={password}
@@ -157,4 +157,3 @@ const LoginForm = ({ onSuccess, onError }) => {
 };
 
 export default LoginForm;
-

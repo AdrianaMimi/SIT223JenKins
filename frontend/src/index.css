@@ -368,10 +368,6 @@
     }
 }
 
-.CodeMirror:first-child {
-    display: none;
-}
-
 .CodeMirror {
     font-family: inherit !important;
 }

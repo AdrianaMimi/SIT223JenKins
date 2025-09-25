@@ -173,7 +173,7 @@ export default function ArticleForm({ onSuccess, onError }) {
                 body,
                 tags: tagArr,
                 slug,
-                visibility, 
+                visibility,
                 // Author identity:
                 authorUid: currentUser?.uid ?? null,
                 authorDisplay: (isAdmin && adminAuthorDisplay.trim())
@@ -186,7 +186,7 @@ export default function ArticleForm({ onSuccess, onError }) {
                 ratingUserSum: 0,
                 ratingUserCount: 0,
 
-                ratingSum: seedSum,          
+                ratingSum: seedSum,
                 ratingCount: seedCnt,
                 rating: avgAll,
 
@@ -222,8 +222,8 @@ export default function ArticleForm({ onSuccess, onError }) {
 
             // 3) Finalize doc (+ scrub again)
             await updateDoc(doc(db, 'articles', docRef.id), {
-                imagePath: displayRes.path, 
-                imageURL: displayRes.url,  
+                imagePath: displayRes.path,
+                imageURL: displayRes.url,
                 display: {
                     croppedPath: displayRes.path,
                     croppedURL: displayRes.url,
@@ -316,8 +316,9 @@ export default function ArticleForm({ onSuccess, onError }) {
                     <div className="mb-2 fw-semibold">Admin options</div>
 
                     <div className="mb-2">
-                        <label className="form-label">Author display name (override)</label>
+                        <label className="form-label" htmlFor="admin-author-display">Author display name (override)</label>
                         <input
+                            id="admin-author-display"
                             className="form-control lobster-regular"
                             value={adminAuthorDisplay}
                             onChange={(e) => setAdminAuthorDisplay(e.target.value)}
@@ -330,8 +331,9 @@ export default function ArticleForm({ onSuccess, onError }) {
 
                     <div className="row g-2">
                         <div className="col-6">
-                            <label className="form-label">Seed rating avg (0–5)</label>
+                            <label className="form-label" htmlFor="admin-seed-avg">Seed rating avg (0–5)</label>
                             <input
+                                id="admin-seed-avg"
                                 type="number"
                                 step="0.1"
                                 min="0"
@@ -343,8 +345,9 @@ export default function ArticleForm({ onSuccess, onError }) {
                             />
                         </div>
                         <div className="col-6">
-                            <label className="form-label">Seed rating count</label>
+                            <label className="form-label" htmlFor="admin-seed-count">Seed rating count</label>
                             <input
+                                id="admin-seed-count"
                                 type="number"
                                 min="0"
                                 className="form-control lobster-regular"
@@ -359,8 +362,9 @@ export default function ArticleForm({ onSuccess, onError }) {
                         Initializes rating baseline via <code>ratingSeedSum</code> & <code>ratingSeedCount</code>.
                     </div>
 
-                    <label className="form-label">Seed comments (one per line)</label>
+                    <label className="form-label" htmlFor="admin-seed-comments">Seed comments (one per line)</label>
                     <textarea
+                        id="admin-seed-comments"
                         className="form-control lobster-regular"
                         rows={4}
                         value={seedComments}
@@ -376,8 +380,9 @@ Just a comment line (defaults to author "Admin" and 0 upvotes)`}
 
             {/* Visibility */}
             <div className="mb-3">
-                <label className="form-label">Visibility</label>
+                <label className="form-label" htmlFor="article-visibility">Visibility</label>
                 <select
+                    id="article-visibility"
                     className="form-select lobster-regular"
                     value={visibility}
                     onChange={(e) => setVisibility(e.target.value)}
